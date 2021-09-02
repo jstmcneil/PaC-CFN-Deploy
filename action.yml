@@ -53,7 +53,7 @@ runs:
           ms-teams-webhook:       ${{inputs.ms-teams-webhook}}
           color_style:            ${{inputs.color_style}}
       - name: Attempt-To-Deploy
-        run: echo "\n[2/2] Attempting to deploy supplied template!"
+        run: echo -e "\n[2/2] Attempting to deploy supplied template!"
         shell: bash
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
