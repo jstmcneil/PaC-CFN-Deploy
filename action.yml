@@ -52,6 +52,10 @@ runs:
           app_CI_key:             ${{inputs.app_CI_key}}
           ms-teams-webhook:       ${{inputs.ms-teams-webhook}}
           color_style:            ${{inputs.color_style}}
+      - name: Add Username to Template
+        uses: jstmcneil/python-add-cfn-metadata@1.0
+        with:
+          template-name:        ${{inputs.template}}
       - name: Attempt-To-Deploy
         run: echo ""; echo -n "[2/2] Attempting to deploy supplied template!"
         shell: bash
