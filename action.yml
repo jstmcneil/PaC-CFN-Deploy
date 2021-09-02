@@ -43,7 +43,7 @@ runs:
     using: "composite"
     steps:
       - name: CloudFormation Guard Check
-        uses: ./.github/actions/Policy-as-Code
+        uses: jstmcneil/Policy-as-Code-Action@2.0
         with:
           rule-file-name:         ${{inputs.rule-file-name}}
           app_CI_key:             ${{inputs.app_CI_key}}
