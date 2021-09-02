@@ -42,6 +42,9 @@ inputs:
 runs:
     using: "composite"
     steps:
+      - name: Attempt-PaC-Scan
+        run: echo "[1/2] Running Policy-as-Code Scan!"
+        shell: bash
       - name: CloudFormation Guard Check
         uses: jstmcneil/Policy-as-Code-Action@2.2
         with:
@@ -50,7 +53,7 @@ runs:
           ms-teams-webhook:       ${{inputs.ms-teams-webhook}}
           color_style:            ${{inputs.color_style}}
       - name: Attempt-To-Deploy
-        run: echo -n "Attempting to deploy supplied template!"
+        run: echo "[2/2] Attempting to deploy supplied template!"
         shell: bash
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
