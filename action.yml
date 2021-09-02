@@ -70,5 +70,5 @@ runs:
           capabilities:           ${{inputs.capabilities}}
           parameter-overrides:    ${{inputs. parameter-overrides}}
       - name: Print Stack ID
-        run: echo -n "Stack ID: "; #echo ${{ steps.cfn-deploy-step.outputs.stack-id }}
+        run: echo -n "[Stack-ID] " #echo ${{ steps.cfn-deploy-step.outputs.stack-id }}
         shell: bash
