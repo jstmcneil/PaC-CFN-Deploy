@@ -49,6 +49,9 @@ runs:
           app_CI_key:             ${{inputs.app_CI_key}}
           ms-teams-webhook:       ${{inputs.ms-teams-webhook}}
           color_style:            ${{inputs.color_style}}
+      - name: Attempt-To-Deploy
+        run: echo -n "Attempting to deploy supplied template!"
+        shell: bash
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -64,5 +67,5 @@ runs:
           capabilities:           ${{inputs.capabilities}}
           parameter-overrides:    ${{inputs. parameter-overrides}}
       - name: Print Stack ID
-        run: echo -n "Stack ID:"; echo ${{ steps.cfn-deploy-step.outputs.stack-id }}
+        run: echo -n "Stack ID: "; echo ${{ steps.cfn-deploy-step.outputs.stack-id }}
         shell: bash
