@@ -57,8 +57,12 @@ runs:
           aws-region:             ${{inputs.aws-region}}
       - name: AWS CloudFormation "Deploy CloudFormation Stack" Action for GitHub Actions
         uses: aws-actions/aws-cloudformation-github-deploy@v1.0.3
+        id: cfn-deploy-step
         with:
           name:                   ${{inputs.name}}
           template:               ${{inputs.template}}
           capabilities:           ${{inputs.capabilities}}
           parameter-overrides:    ${{inputs. parameter-overrides}}
+      - name: Print Stack ID
+        run: echo ${{ steps.cfn-deploy-step.stack-id }}
+        shell: bash
